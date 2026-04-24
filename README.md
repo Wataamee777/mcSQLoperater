@@ -1,6 +1,6 @@
-自作プラグイン SimpleSQL のための、プロフェッショナルかつ分かりやすい README.md を作成しました。
 ## SimpleSQL
 
+-# ※The English version of the README is below.
 
 管理者（OP）がゲーム内から直接SQLを操作するための、軽量で安全なMinecraftサーバー用bukkitプラグインです。
 ## ✨ 特徴
@@ -26,7 +26,7 @@
    4. /restart またはサーバーを再起動して反映。
 
 ## ⚙️ 設定 (config.yml)
-
+```yml
 storage-type: "SQLITE" # "MYSQL" または "SQLITE"
 mysql:
   host: "127.0.0.1"
@@ -36,6 +36,53 @@ mysql:
   password: "password"
 sqlite:
   file-name: "database.db"
-
+```
 ## 📄 ライセンス
 このプロジェクトは MIT License の下で公開されています。詳細は LICENSE ファイルを参照してください。
+
+## SimpleSQL
+
+A lightweight and secure Bukkit plugin for Minecraft servers, allowing administrators (OPs) to directly manipulate SQL from within the game.
+
+## ✨ Features
+
+* In-game SQL execution: Instantly manipulate the database with /sql <query>.
+
+* Asynchronous processing (Async): All SQL executions are performed on a separate thread, preventing server lag.
+
+* MySQL / SQLite compatible: Easily switch between them from config.yml.
+
+* Tab completion: SQL keyword completion prevents errors and supports efficient operation.
+
+* Vault integration: Ensures compatibility with economic plugins (Soft-depend).
+
+## 🚀 Commands
+
+| Command | Permissions | Description |
+|---|---|---|
+| /sql <SQL statement> | OP | Executes an SQL query. |
+| /sql help | OP | Displays the current version of the plugin. |
+
+## 🛠️ Installation
+
+1. Download the latest .jar from Releases.
+
+2. Place the file in the server's plugins folder and start the server.
+3. Edit plugins/SimpleSQL/config.yml and configure the database information.
+4. Restart the server using /restart to apply the changes.
+
+## ⚙️ Configuration (config.yml)
+```yml
+storage-type: "SQLITE" # "MYSQL" or "SQLITE"
+mysql:
+host: "127.0.0.1"
+port: 3306
+database: "minecraft"
+username: "root"
+password: "password"
+sqlite:
+file-name: "database.db"
+```
+
+## 📄 License
+This project is released under the MIT License. See the LICENSE file for details.
