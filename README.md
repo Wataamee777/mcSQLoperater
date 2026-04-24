@@ -1,4 +1,4 @@
-## SimpleSQL
+# SimpleSQL
 
 ※The English version of the README is below.
 
@@ -40,7 +40,9 @@ sqlite:
 ## 📄 ライセンス
 このプロジェクトは MIT License の下で公開されています。詳細は LICENSE ファイルを参照してください。
 
-## SimpleSQL
+---
+
+# SimpleSQL
 
 A lightweight and secure Bukkit plugin for Minecraft servers, allowing administrators (OPs) to directly manipulate SQL from within the game.
 
