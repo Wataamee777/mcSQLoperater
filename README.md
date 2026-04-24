@@ -1,4 +1,6 @@
-# SimpleSQL
+[![SimpleSQL](https://api.mcbanners.com/banner/resource/hangar/SimpleSQL/banner.png?background__template=BLUE_RADIAL)](https://hangar.papermc.io/Wataamee777/SimpleSQL)
+[![SimpleSQL](https://img.shields.io/hangar/dt/SimpleSQL?link=https%3A%2F%2Fhangar.papermc.io%2FWataamee777%2FSimpleSQL&style=flat)](https://hangar.papermc.io/Wataamee777/SimpleSQL)
+[![SimpleSQL](https://img.shields.io/hangar/views/SimpleSQL?link=https%3A%2F%2Fhangar.papermc.io%2FWataamee777%2FSimpleSQL&style=flat)](https://hangar.papermc.io/Wataamee777/SimpleSQL)
 
 ※The English version of the README is below.
 
