@@ -1,0 +1,18 @@
+# Storage type: sqlite or mysql
+storage-type: sqlite
+
+sqlite:
+  file: simplesql.db
+
+mysql:
+  host: localhost
+  port: 3306
+  database: minecraft
+  username: root
+  password: change-me
+  use-ssl: false
+
+pool:
+  maximum-pool-size: 10
+  minimum-idle: 2
+  connection-timeout-ms: 10000

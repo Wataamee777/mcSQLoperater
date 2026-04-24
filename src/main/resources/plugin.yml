@@ -1,0 +1,16 @@
+name: SimpleSQL
+version: ${project.version}
+main: me.wataame.sql.SimpleSQLPlugin
+api-version: '1.21'
+softdepend: [Vault]
+
+commands:
+  sql:
+    description: Execute SQL queries asynchronously.
+    usage: /sql <query>
+    permission: simplesql.admin
+
+permissions:
+  simplesql.admin:
+    description: Allows use of /sql command.
+    default: op
