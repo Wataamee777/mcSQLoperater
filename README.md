@@ -1,6 +1,6 @@
 ## SimpleSQL
 
--# ※The English version of the README is below.
+※The English version of the README is below.
 
 管理者（OP）がゲーム内から直接SQLを操作するための、軽量で安全なMinecraftサーバー用bukkitプラグインです。
 ## ✨ 特徴
