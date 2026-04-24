@@ -1,4 +1,4 @@
-package me.wataa.sql;
+package me.wataame.sql;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

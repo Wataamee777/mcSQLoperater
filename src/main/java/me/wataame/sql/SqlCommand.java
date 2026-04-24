@@ -1,4 +1,4 @@
-package me.wataa.sql;
+package me.wataame.sql;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;

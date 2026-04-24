@@ -1,4 +1,4 @@
-package me.wataa.sql;
+package me.wataame.sql;
 
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.command.PluginCommand;

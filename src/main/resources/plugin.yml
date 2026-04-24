@@ -1,6 +1,6 @@
 name: SimpleSQL
 version: ${project.version}
-main: me.wataa.sql.SimpleSQLPlugin
+main: me.wataame.sql.SimpleSQLPlugin
 api-version: '1.21'
 softdepend: [Vault]
 
