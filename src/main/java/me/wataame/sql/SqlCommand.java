@@ -26,7 +26,7 @@ public class SqlCommand implements CommandExecutor {
             sender.sendMessage("§eSimpleSQL Help");
             sender.sendMessage("§7Version: §f" + plugin.getDescription().getVersion());
             sender.sendMessage("§7Usage: §f/sql <query>");
-            sender.sendMessage("§7Example: §f/sql SELECT * FROM users;");
+            sender.sendMessage("§7Example: §f/sql SHOW TABLES;");
             return true;
         }
 
@@ -42,14 +42,23 @@ public class SqlCommand implements CommandExecutor {
 
                 Bukkit.getScheduler().runTask(plugin, () -> {
                     if (result.hasResultSet()) {
-                        sender.sendMessage("§aSQL executed successfully. Returned rows: " + result.count());
+                        sender.sendMessage("§aSQL executed successfully. Rows: " + result.count());
+                        if (result.rows().isEmpty()) {
+                            sender.sendMessage("§7(empty result set)");
+                        } else {
+                            for (String row : result.rows()) {
+                                sender.sendMessage("§f" + row);
+                            }
+                        }
                     } else {
                         sender.sendMessage("§aSQL executed successfully. Affected rows: " + result.count());
                     }
                 });
             } catch (SQLException e) {
-                Bukkit.getScheduler().runTask(plugin,
-                        () -> sender.sendMessage("§cSQL error: " + e.getMessage()));
+                Bukkit.getScheduler().runTask(plugin, () -> {
+                    sender.sendMessage("§cSQL error: " + e.getMessage());
+                    sender.sendMessage("§cSQLState=" + e.getSQLState() + " ErrorCode=" + e.getErrorCode());
+                });
             }
         });
 

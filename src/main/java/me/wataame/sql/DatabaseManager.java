@@ -7,8 +7,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseManager {
 
@@ -39,7 +42,8 @@ public class DatabaseManager {
             hikariConfig.setDriverClassName("com.mysql.cj.jdbc.Driver");
         } else {
             File dbFile = new File(plugin.getDataFolder(), config.getString("sqlite.file", "simplesql.db"));
-            if (!dbFile.getParentFile().exists() && !dbFile.getParentFile().mkdirs()) {
+            File parent = dbFile.getParentFile();
+            if (parent != null && !parent.exists() && !parent.mkdirs()) {
                 plugin.getLogger().warning("Failed to create plugin data folder for SQLite.");
             }
 
@@ -63,11 +67,24 @@ public class DatabaseManager {
             boolean hasResultSet = statement.execute(query);
             if (hasResultSet) {
                 try (ResultSet resultSet = statement.getResultSet()) {
-                    int rowCount = 0;
+                    ResultSetMetaData metaData = resultSet.getMetaData();
+                    int columnCount = metaData.getColumnCount();
+
+                    List<String> rows = new ArrayList<>();
                     while (resultSet.next()) {
-                        rowCount++;
+                        StringBuilder line = new StringBuilder();
+                        for (int i = 1; i <= columnCount; i++) {
+                            if (i > 1) {
+                                line.append(" | ");
+                            }
+                            String label = metaData.getColumnLabel(i);
+                            Object value = resultSet.getObject(i);
+                            line.append(label).append('=').append(value);
+                        }
+                        rows.add(line.toString());
                     }
-                    return QueryResult.select(rowCount);
+
+                    return QueryResult.select(rows);
                 }
             }
 
@@ -81,13 +98,13 @@ public class DatabaseManager {
         }
     }
 
-    public record QueryResult(boolean hasResultSet, int count) {
-        public static QueryResult select(int rows) {
-            return new QueryResult(true, rows);
+    public record QueryResult(boolean hasResultSet, int count, List<String> rows) {
+        public static QueryResult select(List<String> rows) {
+            return new QueryResult(true, rows.size(), rows);
         }
 
         public static QueryResult update(int affectedRows) {
-            return new QueryResult(false, affectedRows);
+            return new QueryResult(false, affectedRows, List.of());
         }
     }
 }
