@@ -1,0 +1,32 @@
+startup:
+  enabled: "&aSimpleSQL enabled. Version: {version}"
+  disabled: "&eSimpleSQL disabled."
+
+vault:
+  not-found: "&eVault not found. Economy hook disabled."
+  no-provider: "&6Vault found but no economy provider is registered."
+  hooked: "&aVault economy provider hooked: {provider}"
+
+help:
+  title: "&eSimpleSQL Help"
+  version: "&7Version: &f{version}"
+  usage: "&7Usage: &f/sql <query>"
+  example: "&7Example: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cYou must be OP to use this command."
+  empty-query: "&cQuery cannot be empty."
+  running: "&eExecuting query asynchronously..."
+
+result:
+  success-rows: "&aSQL executed successfully. Rows: {count}"
+  success-affected: "&aSQL executed successfully. Affected rows: {count}"
+  empty: "&7(empty result set)"
+  row-format: "&f{row}"
+
+errors:
+  timeout: "&cタイムアウトしました (3秒)。"
+  sql: "&cSQL error: {message}"
+  sql-detail: "&cSQLState={state} ErrorCode={code}"
+  sqlite-dir: "&cFailed to create plugin data folder for SQLite."
+  command-not-defined: "&cCommand /sql is not defined in plugin.yml"

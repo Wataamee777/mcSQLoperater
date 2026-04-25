@@ -18,21 +18,22 @@ public class SqlCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!sender.isOp()) {
-            sender.sendMessage("§cYou must be OP to use this command.");
+            sender.sendMessage(plugin.colorize(plugin.getLang("command.no-permission", "&cYou must be OP to use this command.")));
             return true;
         }
 
         if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            sender.sendMessage("§eSimpleSQL Help");
-            sender.sendMessage("§7Version: §f" + plugin.getDescription().getVersion());
-            sender.sendMessage("§7Usage: §f/sql <query>");
-            sender.sendMessage("§7Example: §f/sql SHOW TABLES;");
+            sender.sendMessage(plugin.colorize(plugin.getLang("help.title", "&eSimpleSQL Help")));
+            sender.sendMessage(plugin.colorize(plugin.getLang("help.version", "&7Version: &f{version}")
+                    .replace("{version}", plugin.getDescription().getVersion())));
+            sender.sendMessage(plugin.colorize(plugin.getLang("help.usage", "&7Usage: &f/sql <query>")));
+            sender.sendMessage(plugin.colorize(plugin.getLang("help.example", "&7Example: &f/sql SHOW TABLES;")));
             return true;
         }
 
         String query = String.join(" ", args).trim();
         if (query.isEmpty()) {
-            sender.sendMessage("§cQuery cannot be empty.");
+            sender.sendMessage(plugin.colorize(plugin.getLang("command.empty-query", "&cQuery cannot be empty.")));
             return true;
         }
 
@@ -42,27 +43,35 @@ public class SqlCommand implements CommandExecutor {
 
                 Bukkit.getScheduler().runTask(plugin, () -> {
                     if (result.hasResultSet()) {
-                        sender.sendMessage("§aSQL executed successfully. Rows: " + result.count());
+                        sender.sendMessage(plugin.colorize(plugin.getLang("result.success-rows", "&aSQL executed successfully. Rows: {count}")
+                                .replace("{count}", String.valueOf(result.count()))));
                         if (result.rows().isEmpty()) {
-                            sender.sendMessage("§7(empty result set)");
+                            sender.sendMessage(plugin.colorize(plugin.getLang("result.empty", "&7(empty result set)")));
                         } else {
                             for (String row : result.rows()) {
-                                sender.sendMessage("§f" + row);
+                                sender.sendMessage(plugin.colorize(plugin.getLang("result.row-format", "&f{row}").replace("{row}", row)));
                             }
                         }
                     } else {
-                        sender.sendMessage("§aSQL executed successfully. Affected rows: " + result.count());
+                        sender.sendMessage(plugin.colorize(plugin.getLang("result.success-affected", "&aSQL executed successfully. Affected rows: {count}")
+                                .replace("{count}", String.valueOf(result.count()))));
                     }
                 });
             } catch (SQLException e) {
                 Bukkit.getScheduler().runTask(plugin, () -> {
-                    sender.sendMessage("§cSQL error: " + e.getMessage());
-                    sender.sendMessage("§cSQLState=" + e.getSQLState() + " ErrorCode=" + e.getErrorCode());
+                    if (plugin.getDatabaseManager().isTimeout(e)) {
+                        sender.sendMessage(plugin.colorize(plugin.getLang("errors.timeout", "&cDatabase connection timed out (3 seconds).")));
+                    }
+                    sender.sendMessage(plugin.colorize(plugin.getLang("errors.sql", "&cSQL error: {message}")
+                            .replace("{message}", String.valueOf(e.getMessage()))));
+                    sender.sendMessage(plugin.colorize(plugin.getLang("errors.sql-detail", "&cSQLState={state} ErrorCode={code}")
+                            .replace("{state}", String.valueOf(e.getSQLState()))
+                            .replace("{code}", String.valueOf(e.getErrorCode()))));
                 });
             }
         });
 
-        sender.sendMessage("§eExecuting query asynchronously...");
+        sender.sendMessage(plugin.colorize(plugin.getLang("command.running", "&eExecuting query asynchronously...")));
         return true;
     }
 }

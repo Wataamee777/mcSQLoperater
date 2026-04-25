@@ -6,14 +6,18 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.SQLTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseManager {
+
+    private static final int DB_TIMEOUT_SECONDS = 3;
+    private static final long DB_TIMEOUT_MS = 3000L;
 
     private final SimpleSQLPlugin plugin;
     private HikariDataSource dataSource;
@@ -44,7 +48,7 @@ public class DatabaseManager {
             File dbFile = new File(plugin.getDataFolder(), config.getString("sqlite.file", "simplesql.db"));
             File parent = dbFile.getParentFile();
             if (parent != null && !parent.exists() && !parent.mkdirs()) {
-                plugin.getLogger().warning("Failed to create plugin data folder for SQLite.");
+                plugin.getLogger().warning(plugin.colorize(plugin.getLang("errors.sqlite-dir", "&cFailed to create plugin data folder for SQLite.")));
             }
 
             hikariConfig.setJdbcUrl("jdbc:sqlite:" + dbFile.getAbsolutePath());
@@ -55,16 +59,19 @@ public class DatabaseManager {
         hikariConfig.setPoolName("SimpleSQL-Hikari");
         hikariConfig.setMaximumPoolSize(config.getInt("pool.maximum-pool-size", 10));
         hikariConfig.setMinimumIdle(config.getInt("pool.minimum-idle", 2));
-        hikariConfig.setConnectionTimeout(config.getLong("pool.connection-timeout-ms", 10000L));
+        hikariConfig.setConnectionTimeout(DB_TIMEOUT_MS);
+        hikariConfig.setValidationTimeout(DB_TIMEOUT_MS);
 
         dataSource = new HikariDataSource(hikariConfig);
     }
 
     public QueryResult executeRaw(String query) throws SQLException {
         try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement()) {
+             PreparedStatement statement = connection.prepareStatement(query)) {
 
-            boolean hasResultSet = statement.execute(query);
+            statement.setQueryTimeout(DB_TIMEOUT_SECONDS);
+
+            boolean hasResultSet = statement.execute();
             if (hasResultSet) {
                 try (ResultSet resultSet = statement.getResultSet()) {
                     ResultSetMetaData metaData = resultSet.getMetaData();
@@ -90,6 +97,14 @@ public class DatabaseManager {
 
             return QueryResult.update(statement.getUpdateCount());
         }
+    }
+
+    public boolean isTimeout(SQLException e) {
+        if (e instanceof SQLTimeoutException) {
+            return true;
+        }
+        String message = e.getMessage();
+        return message != null && message.toLowerCase().contains("timeout");
     }
 
     public void close() {

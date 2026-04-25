@@ -15,4 +15,7 @@ mysql:
 pool:
   maximum-pool-size: 10
   minimum-idle: 2
-  connection-timeout-ms: 10000
+  # Connection timeout is fixed at 3000 ms in code by request.
+  connection-timeout-ms: 3000
+
+# Edit messages in lang.yml to customize startup/help/error text.
