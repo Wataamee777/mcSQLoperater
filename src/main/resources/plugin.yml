@@ -9,8 +9,12 @@ commands:
     description: Execute SQL queries asynchronously.
     usage: /sql <query>
     permission: simplesql.admin
+  sql-send:
+    description: Execute SQL and POST result to configured URL.
+    usage: /sql-send <query>
+    permission: simplesql.admin
 
 permissions:
   simplesql.admin:
-    description: Allows use of /sql command.
+    description: Allows use of SQL admin commands.
     default: op

@@ -18,4 +18,11 @@ pool:
   # Connection timeout is fixed at 3000 ms in code by request.
   connection-timeout-ms: 3000
 
+sql-send:
+  # Endpoint that will receive SQL execution payload via HTTP POST.
+  url: ""
+  # Any custom headers are supported (Authorization, X-API-Key, etc.)
+  headers:
+    Authorization: "Bearer your-token"
+
 # Edit messages in lang.yml to customize startup/help/error text.

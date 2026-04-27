@@ -50,6 +50,13 @@ public class SimpleSQLPlugin extends JavaPlugin {
         SqlCommand executor = new SqlCommand(this);
         sqlCommand.setExecutor(executor);
         sqlCommand.setTabCompleter(new SqlTabCompleter());
+
+        PluginCommand sqlSendCommand = getCommand("sql-send");
+        if (sqlSendCommand == null) {
+            getLogger().severe(colorize(getLang("errors.command-not-defined-send", "&cCommand /sql-send is not defined in plugin.yml")));
+            return;
+        }
+        sqlSendCommand.setExecutor(new SqlSendCommand(this));
     }
 
     private void setupEconomy() {

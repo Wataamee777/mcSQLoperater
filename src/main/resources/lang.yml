@@ -24,9 +24,17 @@ result:
   empty: "&7(empty result set)"
   row-format: "&f{row}"
 
+sql-send:
+  usage: "&cUsage: /sql-send <query>"
+  running: "&eExecuting query and sending result..."
+  success: "&aSent SQL result to configured URL."
+  url-empty: "&csql-send.url is empty in config.yml"
+  post-failed: "&cFailed to POST SQL result: {message}"
+
 errors:
   timeout: "&cタイムアウトしました (3秒)。"
   sql: "&cSQL error: {message}"
   sql-detail: "&cSQLState={state} ErrorCode={code}"
   sqlite-dir: "&cFailed to create plugin data folder for SQLite."
   command-not-defined: "&cCommand /sql is not defined in plugin.yml"
+  command-not-defined-send: "&cCommand /sql-send is not defined in plugin.yml"
