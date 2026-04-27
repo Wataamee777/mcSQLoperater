@@ -1,0 +1,28 @@
+# Storage type: sqlite or mysql
+storage-type: sqlite
+
+sqlite:
+  file: simplesql.db
+
+mysql:
+  host: localhost
+  port: 3306
+  database: minecraft
+  username: root
+  password: change-me
+  use-ssl: false
+
+pool:
+  maximum-pool-size: 10
+  minimum-idle: 2
+  # Connection timeout is fixed at 3000 ms in code by request.
+  connection-timeout-ms: 3000
+
+sql-send:
+  # Endpoint that will receive SQL execution payload via HTTP POST.
+  url: ""
+  # Any custom headers are supported (Authorization, X-API-Key, etc.)
+  headers:
+    Authorization: "Bearer your-token"
+
+# Edit messages in lang.yml to customize startup/help/error text.
