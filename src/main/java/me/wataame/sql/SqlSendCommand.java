@@ -66,7 +66,7 @@ public class SqlSendCommand implements CommandExecutor {
                         () -> sender.sendMessage(plugin.colorize(plugin.getLang("sql-send.success", "&aSent SQL result to configured URL."))));
             } catch (SQLException e) {
                 payload.put("success", false);
-                payload.put("error", e.getMessage());
+                payload.put("error", safeMessage(e));
                 payload.put("sqlState", e.getSQLState());
                 payload.put("errorCode", e.getErrorCode());
 
@@ -81,21 +81,26 @@ public class SqlSendCommand implements CommandExecutor {
                         sender.sendMessage(plugin.colorize(plugin.getLang("errors.timeout", "&cタイムアウトしました (3秒)。")));
                     }
                     sender.sendMessage(plugin.colorize(plugin.getLang("errors.sql", "&cSQL error: {message}")
-                            .replace("{message}", String.valueOf(e.getMessage()))));
+                            .replace("{message}", safeMessage(e))));
                 });
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 Bukkit.getScheduler().runTask(plugin,
                         () -> sender.sendMessage(plugin.colorize(plugin.getLang("sql-send.post-failed", "&cFailed to POST SQL result: {message}")
-                                .replace("{message}", e.getMessage()))));
+                                .replace("{message}", safeMessage(e)))));
             } catch (IOException e) {
                 Bukkit.getScheduler().runTask(plugin,
                         () -> sender.sendMessage(plugin.colorize(plugin.getLang("sql-send.post-failed", "&cFailed to POST SQL result: {message}")
-                                .replace("{message}", e.getMessage()))));
+                                .replace("{message}", safeMessage(e)))));
             }
         });
 
         return true;
+    }
+
+    private String safeMessage(Throwable throwable) {
+        String msg = throwable.getMessage();
+        return msg == null || msg.isBlank() ? throwable.getClass().getSimpleName() : msg;
     }
 
     private void postPayload(String url, Map<String, Object> payload) throws IOException, InterruptedException {
