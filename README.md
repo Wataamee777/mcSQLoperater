@@ -29,15 +29,35 @@
 
 ## ⚙️ 設定 (config.yml)
 ```yml
-storage-type: "SQLITE" # "MYSQL" または "SQLITE"
-mysql:
-  host: "127.0.0.1"
-  port: 3306
-  database: "minecraft"
-  username: "root"
-  password: "password"
+# Storage type: sqlite or mysql
+storage-type: mysql
+
 sqlite:
-  file-name: "database.db"
+  file: simplesql.db
+
+mysql:
+  host: localhost
+  port: 3306
+  database: minecraft
+  username: root
+  password: password
+  use-ssl: false
+
+pool:
+  maximum-pool-size: 10
+  minimum-idle: 2
+  # Connection timeout is fixed at 3000 ms in code by request.
+  connection-timeout-ms: 3000
+
+sql-send:
+  # Endpoint that will receive SQL execution payload via HTTP POST.
+  url: "https://example.com"
+  # Any custom headers are supported (Authorization, X-API-Key, etc.)
+  # 何も設定しなくてもok
+  headers:
+    Authorization: "Bearer xxx"
+
+# Edit messages in lang.yml to customize startup/help/error text.
 ```
 ## 📄 ライセンス
 このプロジェクトは MIT License の下で公開されています。詳細は LICENSE ファイルを参照してください。
@@ -77,15 +97,35 @@ A lightweight and secure Bukkit plugin for Minecraft servers, allowing administr
 
 ## ⚙️ Configuration (config.yml)
 ```yml
-storage-type: "SQLITE" # "MYSQL" or "SQLITE"
-mysql:
-host: "127.0.0.1"
-port: 3306
-database: "minecraft"
-username: "root"
-password: "password"
+# Storage type: sqlite or mysql
+storage-type: mysql
+
 sqlite:
-file-name: "database.db"
+  file: simplesql.db
+
+mysql:
+  host: localhost
+  port: 3306
+  database: minecraft
+  username: root
+  password: password
+  use-ssl: false
+
+pool:
+  maximum-pool-size: 10
+  minimum-idle: 2
+  # Connection timeout is fixed at 3000 ms in code by request.
+  connection-timeout-ms: 3000
+
+sql-send:
+  # Endpoint that will receive SQL execution payload via HTTP POST.
+  url: "https://example.com"
+  # Any custom headers are supported (Authorization, X-API-Key, etc.)
+  # No change OK
+  headers:
+    Authorization: "Bearer xxx"
+
+# Edit messages in lang.yml to customize startup/help/error text.
 ```
 
 ## 📄 License
