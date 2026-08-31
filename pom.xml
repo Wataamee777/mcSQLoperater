@@ -5,7 +5,7 @@
 
     <groupId>me.wataame</groupId>
     <artifactId>simplesql</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
+    <version>1.2.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>SimpleSQL</name>
@@ -53,7 +53,7 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-            <version>8.4.0</version>
+            <version>9.7.0</version>
         </dependency>
     </dependencies>
 
