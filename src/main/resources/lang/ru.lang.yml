@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aSimpleSQL включен. Версия: {version}"
+  disabled: "&eSimpleSQL выключен."
+
+vault:
+  not-found: "&eVault не найден. Интеграция с плагином экономики отключена."
+  no-provider: "&6Vault найден, но плагин экономики отсутствует."
+  hooked: "&aУспешно подключено к плагину экономики через Vault: {provider}"
+
+help:
+  title: "&eСправка SimpleSQL"
+  version: "&7Версия: &f{version}"
+  usage: "&7Использование: &f/sql <query>"
+  example: "&7Пример: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cУ вас нет прав OP, поэтому вы не можете использовать эту команду."
+  empty-query: "&cПохоже, запрос пуст."
+  running: "&eВыполняется асинхронный запрос..."
+
+result:
+  success-rows: "&aSQL запрос успешно выполнен. Строк: {count}"
+  success-affected: "&aSQL запрос успешно выполнен. Затронуто строк: {count}"
+  empty: "&7(Пусто)"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7Использование: /sql-send <query>"
+  running: "&eВыполняется асинхронный запрос и отправка данных..."
+  success: "&aPOST-запрос на указанный URL успешно отправлен."
+  url-empty: "&cПараметр sql-send.url настроен неправильно. Проверьте config.yml."
+  post-failed: "&cПроизошла ошибка: {message}"
+
+errors:
+  timeout: "&cВремя ожидания истекло (3 сек)."
+  sql: "&cОшибка SQL: {message}"
+  sql-detail: "&cСтатус SQL={state} Код ошибки={code}"
+  sqlite-dir: "&cНе удалось создать папку SQLite."
+  command-not-defined: "&cЭта команда не определена."
+  command-not-defined-send: "&cЭта команда не определена."
