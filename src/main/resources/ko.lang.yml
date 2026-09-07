@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aSimpleSQL이 활성화되었습니다. 버전: {version}"
+  disabled: "&eSimpleSQL이 비활성화되었습니다."
+
+vault:
+  not-found: "&eVault를 찾을 수 없습니다. 경제 플러그인 연동을 비활성화했습니다."
+  no-provider: "&6Vault를 찾았으나 경제 플러그인이 없습니다."
+  hooked: "&aVault를 통해 경제 플러그인과 연동되었습니다: {provider}"
+
+help:
+  title: "&eSimpleSQL 도움말"
+  version: "&7버전: &f{version}"
+  usage: "&7사용법: &f/sql QUERY"
+  example: "&7예시: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cOP 권한이 없으므로 이 명령어를 사용할 수 없습니다."
+  empty-query: "&c내용이 비어 있는 것 같습니다."
+  running: "&e비동기 쿼리를 실행 중입니다..."
+
+result:
+  success-rows: "&aSQL이 성공적으로 실행되었습니다. 행: {count}"
+  success-affected: "&aSQL이 성공적으로 실행되었습니다. 영향을 받은 행: {count}"
+  empty: "&7(내용 없음)"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7사용법: /sql-send QUERY"
+  running: "&e비동기 쿼리 실행 및 내용 전송을 진행 중입니다..."
+  success: "&a설정된 URL로 POST 전송이 성공적으로 완료되었습니다."
+  url-empty: "&csql-send.url이 올바르게 설정되지 않았습니다. config.yml을 확인해 주세요."
+  post-failed: "&c오류가 발생했습니다: {message}"
+
+errors:
+  timeout: "&c시간 초과되었습니다 (3초)."
+  sql: "&cSQL 오류: {message}"
+  sql-detail: "&cSQL상태={state} 오류코드={code}"
+  sqlite-dir: "&cSQLite 폴더 생성에 실패했습니다."
+  command-not-defined: "&c이 명령어는 정의되지 않았습니다."
+  command-not-defined-send: "&c이 명령어는 정의되지 않았습니다."
