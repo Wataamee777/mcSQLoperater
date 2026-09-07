@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aSimpleSQL ha sido activado. Versión: {version}"
+  disabled: "&eSimpleSQL ha sido desactivado."
+
+vault:
+  not-found: "&eNo se encontró Vault. Se ha desactivado la integración con el plugin de economía."
+  no-provider: "&6Se encontró Vault, pero no hay ningún plugin de economía disponible."
+  hooked: "&aConectado al plugin de economía a través de Vault: {provider}"
+
+help:
+  title: "&eAyuda de SimpleSQL"
+  version: "&7Versión: &f{version}"
+  usage: "&7Uso: &f/sql QUERY"
+  example: "&7Ejemplo: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cNo eres OP, por lo que no puedes usar este comando."
+  empty-query: "&cParece que la consulta está vacía."
+  running: "&eEjecutando consulta asíncrona..."
+
+result:
+  success-rows: "&aSQL ejecutado correctamente. Filas: {count}"
+  success-affected: "&aSQL ejecutado correctamente. Filas afectadas: {count}"
+  empty: "&7(Vacío)"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7Uso: /sql-send QUERY"
+  running: "&eEjecutando consulta asíncrona y enviando contenido..."
+  success: "&aEl envío POST a la URL configurada se realizó correctamente."
+  url-empty: "&csql-send.url no está configurado correctamente. Por favor, verifica config.yml."
+  post-failed: "&cHa ocurrido un error: {message}"
+
+errors:
+  timeout: "&cTiempo de espera agotado (3 segundos)."
+  sql: "&cError de SQL: {message}"
+  sql-detail: "&cEstado SQL={state} Código de error={code}"
+  sqlite-dir: "&cError al intentar crear la carpeta de SQLite."
+  command-not-defined: "&cEste comando no está definido."
+  command-not-defined-send: "&cEste comando no está definido."
