@@ -1,0 +1,40 @@
+startup:
+  enabled: "&a本「シンプルＳＱＬ」機能ノ發動ヲ認許ス 茲ニ之ヲ公示ス 制御版次: {version}"
+  disabled: "&e本「シンプルＳＱＬ」機能ハ其ノ効力ヲ停止セリ"
+
+vault:
+  not-found: "&e「ヴオルト」機關ノ存在ヲ確認シ得ス 依テ經濟聯絡機能ヲ廢止ス"
+  no-provider: "&6「ヴオルト」機關ヲ檢出スルモ 運用の依據トナル經濟機能ノ存在ナシ"
+  hooked: "&a「ヴオルト」機關ヲ經テ經濟機能トノ緊密ナル協調ヲ達成セリ: {provider}"
+
+help:
+  title: "&e「シンプルＳＱＬ」取扱取扱ノ手引"
+  version: "&7版次: &f{version}"
+  usage: "&7運用法: &f/sql <query>"
+  example: "&7實例: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&c汝「管理者（ＯＰ）」ノ親任ヲ受ケシ者ニ非ス 依テ此ノ指令ノ發動ヲ禁ズ"
+  empty-query: "&c上申書（クエリ）ノ文面ニ内容空虚ナル部分アリ"
+  running: "&e電信（非同期クエリ）ヲ以テ 鋭意執行中ナリ..."
+
+result:
+  success-rows: "&a電算執行ノ結果 正常ニ完遂セリ 抽出物件（行）: {count}"
+  success-affected: "&a電算執行ノ結果 正常ニ完遂セリ 變更等ノ影響ヲ受ケタル物件（行）: {count}"
+  empty: "&7（關聯スル記録一切存在セズ）"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7運用法: /sql-send <query>"
+  running: "&e管区外（ＵＲＬ）へ向ケ 電信ノ暗号執行及ビ送信ヲ開始セリ..."
+  success: "&a指定ノ電信局（ＵＲＬ）ニ對スル「ＰＯＳＴ」送信ノ儀 滞り無ク完了セリ"
+  url-empty: "&c事由具備セズ 「sql-send.url」ノ記載ニ不備アリ 「config.yml」ヲ直チニ檢査セヨ"
+  post-failed: "&c不慮ノ事態（障害）發案セリ: {message}"
+
+errors:
+  timeout: "&c通信限度時間（三秒）ヲ超過シタルニ依リ 執行ヲ打切ル"
+  sql: "&c「ＳＱＬ」運用上ノ規律違反（エラー）ヲ檢出セリ: {message}"
+  sql-detail: "&c電算状態={state} 違反條項コード={code}"
+  sqlite-dir: "&c「ＳＱＬｉｔｅ」用ノ書庫（フォルダ）新設ノ認可ニ失敗セリ"
+  command-not-defined: "&c本指令ハ帝國法令（プラグイン）ニ定義サレタルモノニ非ズ"
+  command-not-defined-send: "&c本指令ハ帝國法令（プラグイン）ニ定義サレタルモノニ非ズ"
