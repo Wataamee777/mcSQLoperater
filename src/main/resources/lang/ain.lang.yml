@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aシンプリ・エスキューエル アナㇰネ アシカタ（有効） ネ ルウェ。 バージョン: {version}"
+  disabled: "&eシンプリ・エスキューエル アナㇰネ イサ（無効） ネ ルウェ。"
+
+vault:
+  not-found: "&eヴォルト（Vault） カムイ ミチュ（見つからず）、経済のウパシ（連携）を止めました。"
+  no-provider: "&6ヴォルト（Vault）は在れど、経済のカムイが居りません。"
+  hooked: "&aヴォルト（Vault）のウパシ（連携）により経済のカムイが降臨しました: {provider}"
+
+help:
+  title: "&eシンプリ・エスキューエル ヌプル・イタㇰ（ヘルプ）"
+  version: "&7バージョン: &f{version}"
+  usage: "&7イタㇰ（使い方）: &f/sql <query>"
+  example: "&7例（コタンの教え）: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cお前はチセ（家）の長（OP）ではない。このイタㇰは唱えられぬ。"
+  empty-query: "&cクエリの器に、何も入っておらぬ（空）のようだ。"
+  running: "&e目に見えぬ精霊（非同期）が、クエリを走らせております..."
+
+result:
+  success-rows: "&a神々の導きにより、SQLが正しく響きました。 獲物の数（行）: {count}"
+  success-affected: "&a大地にSQLが響き、多くの恵み（影響）がありました。 影響の数: {count}"
+  empty: "&7（カムイの悪戯か、何もありません）"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7使い方: /sql-send <query>"
+  running: "&e遠きコタン（URL）へ、精霊が言葉を運んでおります..."
+  success: "&a遥か彼方のコタン（URL）へ、POSTの矢が正しく届きました。"
+  url-empty: "&c行き先のコタン（url）が記されていません。config.ymlの地図を確かめよ。"
+  post-failed: "&c魔物（エラー）が現れました: {message}"
+
+errors:
+  timeout: "&c時が流れすぎました（3秒）。カムイの息吹が途切れました。"
+  sql: "&cSQLのカムイが怒り給うた: {message}"
+  sql-detail: "&cカムイの状態={state} 祟りの呪文={code}"
+  sqlite-dir: "&cSQLiteのチセ（フォルダ）を結ぶことに失敗しました。"
+  command-not-defined: "&cその言葉（コマンド）は、我らのコタンには無い。"
+  command-not-defined-send: "&cその言葉（コマンド）は、我らのコタンには無い。"
