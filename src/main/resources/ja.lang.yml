@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aSimpleSQL が有効になりました。 バージョン: {version}"
+  disabled: "&eSimpleSQL が無効化されました。"
+
+vault:
+  not-found: "&eVaultが見つかりません 経済プラグイン連携を無効化しました。"
+  no-provider: "&6Vaultを見つけました が経済プラグインがありません。"
+  hooked: "&aVaultで経済プラグインと連携しました: {provider}"
+
+help:
+  title: "&eSimpleSQL ヘルプ"
+  version: "&7バージョン: &f{version}"
+  usage: "&7U使い方: &f/sql <query>"
+  example: "&7例: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cあなたはOPではないのでこのコマンドは使用出来ません。"
+  empty-query: "&c内容がないようです"
+  running: "&e非同期クエリ実行しています..."
+
+result:
+  success-rows: "&aSQL が正しく実行されました。 行: {count}"
+  success-affected: "&aSQL が正しく実行されました。 影響を与えた行: {count}"
+  empty: "&7(何もありません)"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&使い方: /sql-send <query>"
+  running: "&e非同期クエリ実行と内容送信を行っています..."
+  success: "&aS設定されたURLへPOSTが正しく実行されました。"
+  url-empty: "&csql-send.url が正しく設定されていません。config.ymlをご確認ください。"
+  post-failed: "&cエラーが発生しました: {message}"
+
+errors:
+  timeout: "&cタイムアウトしました (3秒)."
+  sql: "&cSQL エラー: {message}"
+  sql-detail: "&cSQL状態={state} エラーコード={code}"
+  sqlite-dir: "&cSQLiteフォルダ作成に失敗されませんでした。"
+  command-not-defined: "&cこのコマンドは定義されていません"
+  command-not-defined-send: "&cこのコマンドは定義されていません"
