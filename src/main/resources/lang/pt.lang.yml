@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aSimpleSQL foi ativado. Versão: {version}"
+  disabled: "&eSimpleSQL foi desativado."
+
+vault:
+  not-found: "&eVault não encontrado. Integração com o plugin de economia desativada."
+  no-provider: "&6Vault encontrado, mas nenhum plugin de economia está presente."
+  hooked: "&aConectado ao plugin de economia via Vault: {provider}"
+
+help:
+  title: "&eAjuda do SimpleSQL"
+  version: "&7Versão: &f{version}"
+  usage: "&7Uso: &f/sql <query>"
+  example: "&7Exemplo: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cVocê não é OP, portanto não pode usar este comando."
+  empty-query: "&cO conteúdo parece estar vazio."
+  running: "&eExecutando consulta assíncrona..."
+
+result:
+  success-rows: "&aSQL executado com sucesso. Linhas: {count}"
+  success-affected: "&aSQL executado com sucesso. Linhas afetadas: {count}"
+  empty: "&7(Vazio)"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7Uso: /sql-send <query>"
+  running: "&eExecutando consulta assíncrona e enviando conteúdo..."
+  success: "&aO envio POST para o URL configurado foi realizado com sucesso."
+  url-empty: "&cO sql-send.url não está configurado corretamente. Verifique o config.yml."
+  post-failed: "&cOcorreu um erro: {message}"
+
+errors:
+  timeout: "&cTempo limite esgotado (3 segundos)."
+  sql: "&cErro de SQL: {message}"
+  sql-detail: "&cEstado SQL={state} Código de erro={code}"
+  sqlite-dir: "&cFalha ao criar a pasta do SQLite."
+  command-not-defined: "&cEste comando não está definido."
+  command-not-defined-send: "&cEste comando não está definido."
