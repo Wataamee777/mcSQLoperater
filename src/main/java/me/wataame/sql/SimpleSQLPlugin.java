@@ -18,8 +18,10 @@ public class SimpleSQLPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // config.yml の生成と読み込み
         saveDefaultConfig();
-        saveResource("lang.yml", false);
+        // config.yml の設定に基づいて言語ファイルをフォルダに保存・読み込み
+        saveDefaultLangFiles();
         loadLang();
 
         this.databaseManager = new DatabaseManager(this);
@@ -78,15 +80,49 @@ public class SimpleSQLPlugin extends JavaPlugin {
         }
     }
 
-    private void loadLang() {
-        File langFile = new File(getDataFolder(), "lang.yml");
-        if (!langFile.exists()) {
-            saveResource("lang.yml", false);
+    /**
+     * Jar内の初期言語ファイルをプラグインフォルダに保存する処理
+     */
+    private void saveDefaultLangFiles() {
+        File langDir = new File(getDataFolder(), "lang");
+        if (!langDir.exists()) {
+            langDir.mkdirs();
         }
+        
+        // config.yml から言語設定を取得（未指定なら "ja"）
+        String lang = getConfig().getString("lang", "ja");
+        // パスを lang/{lang}.lang.yml に指定
+        String langResourcePath = "lang/" + lang + ".lang.yml";
+        
+        File langFile = new File(getDataFolder(), langResourcePath);
+        if (!langFile.exists()) {
+            // Jar内に該当する言語ファイルがある場合のみコピー
+            if (getResource(langResourcePath) != null) {
+                saveResource(langResourcePath, false);
+            }
+        }
+    }
+
+    /**
+     * config.yml の lang 設定に基づき、lang/{lang}.lang.yml を読み込む
+     */
+    private void loadLang() {
+        String lang = getConfig().getString("lang", "ja");
+        
+        // パスを lang/{lang}.lang.yml に指定
+        File langFile = new File(getDataFolder(), "lang/" + lang + ".lang.yml");
+        
+        if (!langFile.exists()) {
+            getLogger().warning("Language file " + langFile.getName() + " not found. Falling back to default values.");
+        }
+        
         this.langConfig = YamlConfiguration.loadConfiguration(langFile);
     }
 
     public String getLang(String path, String fallback) {
+        if (langConfig == null) {
+            return fallback;
+        }
         return langConfig.getString(path, fallback);
     }
 
