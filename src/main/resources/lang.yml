@@ -32,7 +32,7 @@ sql-send:
   post-failed: "&cFailed to POST SQL result: {message}"
 
 errors:
-  timeout: "&cタイムアウトしました (3秒)。"
+  timeout: "&cTimed Out (3s)."
   sql: "&cSQL error: {message}"
   sql-detail: "&cSQLState={state} ErrorCode={code}"
   sqlite-dir: "&cFailed to create plugin data folder for SQLite."
