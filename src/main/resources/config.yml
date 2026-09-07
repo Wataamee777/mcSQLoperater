@@ -26,4 +26,4 @@ sql-send:
     Authorization: "Bearer your-token"
     
 #AnyLang lang/ja.lang.yml . 
-lang: ja.lang.yml
+lang: ja
