@@ -24,5 +24,6 @@ sql-send:
   # Any custom headers are supported (Authorization, X-API-Key, etc.)
   headers:
     Authorization: "Bearer your-token"
-
-# Edit messages in lang.yml to customize startup/help/error text.
+    
+#AnyLang lang/ja.lang.yml . 
+lang: ja.lang.yml
