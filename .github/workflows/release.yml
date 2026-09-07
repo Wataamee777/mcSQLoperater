@@ -59,3 +59,25 @@ jobs:
           tag_name: v${{ steps.version.outputs.version }}
           name: SimpleSQL v${{ steps.version.outputs.version }}
           files: target/SimpleSQL-${{ steps.version.outputs.version }}.jar
+
+      # ==========================================
+      # ここからHangarへのアップロード手順を追加
+      # ==========================================
+      - name: Upload to Hangar
+        if: steps.tag_check.outputs.exists == 'false'
+        uses: benwoo1110/hangar-upload-action@v1
+        with:
+          api_token: ${{ secrets.HANGAR_TOKEN }}
+          slug: 'SimpleSQL' # Hangar上のプロジェクトURLスラッグ
+          version: v${{ steps.version.outputs.version }} # バージョン名（例: v1.2.2-SNAPSHOT）
+          
+          # pom.xmlのバージョンに「-SNAPSHOT」が含まれていれば SNAPSHOT、それ以外なら Release チャンネルにする
+          channel: ${{ contains(steps.version.outputs.version, '-SNAPSHOT') && 'SNAPSHOT' || 'Release' }}
+          
+          files: |
+            [
+              {
+                "path": "target/SimpleSQL-${{ steps.version.outputs.version }}.jar",
+                "platforms": ["PAPER"]
+              }
+            ]
