@@ -12,6 +12,7 @@
 * MySQL / SQLite 両対応: config.yml から簡単に切り替え可能。
 * タブ補完: SQLキーワードの補完機能により、ミスを防ぎ効率的な操作をサポート。
 * Vault 連携: 経済系プラグインとの親和性を確保（Soft-depend）。
+* 複数言語対応: 主要7ヶ国語からマイナーな言語まで
 
 ## 🚀 コマンド
 
@@ -57,7 +58,7 @@ sql-send:
   headers:
     Authorization: "Bearer xxx"
 
-# Edit messages in lang.yml to customize startup/help/error text.
+lang: ja
 ```
 ## 📄 ライセンス
 このプロジェクトは MIT License の下で公開されています。詳細は LICENSE ファイルを参照してください。
@@ -79,6 +80,8 @@ A lightweight and secure Bukkit plugin for Minecraft servers, allowing administr
 * Tab completion: SQL keyword completion prevents errors and supports efficient operation.
 
 * Vault integration: Ensures compatibility with economic plugins (Soft-depend).
+* 
+* Multilingual support: From seven major languages ​​to lesser-spoken ones.
 
 ## 🚀 Commands
 
@@ -125,7 +128,7 @@ sql-send:
   headers:
     Authorization: "Bearer xxx"
 
-# Edit messages in lang.yml to customize startup/help/error text.
+lang: en
 ```
 
 ## 📄 License
