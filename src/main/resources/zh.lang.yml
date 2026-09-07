@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aSimpleSQL 已启用。 版本: {version}"
+  disabled: "&eSimpleSQL 已禁用。"
+
+vault:
+  not-found: "&e未找到 Vault。已禁用经济插件关联。"
+  no-provider: "&6已找到 Vault，但未检测到经济插件。"
+  hooked: "&a已通过 Vault 成功关联经济插件: {provider}"
+
+help:
+  title: "&eSimpleSQL 帮助"
+  version: "&7版本: &f{version}"
+  usage: "&7用法: &f/sql QUERY"
+  example: "&7示例: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&c您不是管理员(OP)，无法使用此命令。"
+  empty-query: "&c查询内容似乎为空。"
+  running: "&e正在执行异步查询..."
+
+result:
+  success-rows: "&aSQL 执行成功。 行数: {count}"
+  success-affected: "&aSQL 执行成功。 受影响的行数: {count}"
+  empty: "&7(无内容)"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7用法: /sql-send QUERY"
+  running: "&e正在执行异步查询并发送内容..."
+  success: "&a已成功向配置的 URL 发送 POST 请求。"
+  url-empty: "&c未正确配置 sql-send.url。请检查 config.yml。"
+  post-failed: "&c发生错误: {message}"
+
+errors:
+  timeout: "&c操作超时 (3秒)。"
+  sql: "&cSQL 错误: {message}"
+  sql-detail: "&cSQL状态={state} 错误代码={code}"
+  sqlite-dir: "&c创建 SQLite 文件夹失败。"
+  command-not-defined: "&c该命令未定义。"
+  command-not-defined-send: "&c该命令未定义。"
