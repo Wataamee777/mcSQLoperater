@@ -1,40 +1,40 @@
 startup:
-  enabled: "&aSimpleSQL foi ativado. Versão: {version}"
-  disabled: "&eSimpleSQL foi desativado."
+  enabled: "&aSimpleSQL wurde aktiviert. Version: {version}"
+  disabled: "&eSimpleSQL wurde deaktiviert."
 
 vault:
-  not-found: "&eVault não encontrado. Integração com o plugin de economia desativada."
-  no-provider: "&6Vault encontrado, mas nenhum plugin de economia está presente."
-  hooked: "&aConectado ao plugin de economia via Vault: {provider}"
+  not-found: "&eVault wurde nicht gefunden. Verbindung zum Wirtschaft-Plugin deaktiviert."
+  no-provider: "&6Vault gefunden, aber kein Wirtschaft-Plugin vorhanden."
+  hooked: "&aÜber Vault mit Wirtschaft-Plugin verbunden: {provider}"
 
 help:
-  title: "&eAjuda do SimpleSQL"
-  version: "&7Versão: &f{version}"
-  usage: "&7Uso: &f/sql <query>"
-  example: "&7Exemplo: &f/sql SHOW TABLES;"
+  title: "&eSimpleSQL-Hilfe"
+  version: "&7Version: &f{version}"
+  usage: "&7Verwendung: &f/sql <query>"
+  example: "&7Beispiel: &f/sql SHOW TABLES;"
 
 command:
-  no-permission: "&cVocê não é OP, portanto não pode usar este comando."
-  empty-query: "&cO conteúdo parece estar vazio."
-  running: "&eExecutando consulta assíncrona..."
+  no-permission: "&cDu bist kein OP, daher kannst du diesen Befehl nicht verwenden."
+  empty-query: "&cDer Inhalt scheint leer zu sein."
+  running: "&eAsynchroner Query wird ausgeführt..."
 
 result:
-  success-rows: "&aSQL executado com sucesso. Linhas: {count}"
-  success-affected: "&aSQL executado com sucesso. Linhas afetadas: {count}"
-  empty: "&7(Vazio)"
+  success-rows: "&aSQL erfolgreich ausgeführt. Zeilen: {count}"
+  success-affected: "&aSQL erfolgreich ausgeführt. Betroffene Zeilen: {count}"
+  empty: "&7(Nichts vorhanden)"
   row-format: "&f{row}"
 
 sql-send:
-  usage: "&7Uso: /sql-send <query>"
-  running: "&eExecutando consulta assíncrona e enviando conteúdo..."
-  success: "&aO envio POST para o URL configurado foi realizado com sucesso."
-  url-empty: "&cO sql-send.url não está configurado corretamente. Verifique o config.yml."
-  post-failed: "&cOcorreu um erro: {message}"
+  usage: "&7Verwendung: /sql-send <query>"
+  running: "&eAsynchroner Query wird ausgeführt und Inhalt gesendet..."
+  success: "&aPOST-Anfrage an die konfigurierte URL wurde erfolgreich ausgeführt."
+  url-empty: "&csql-send.url ist nicht korrekt konfiguriert. Bitte überprüfe die config.yml."
+  post-failed: "&cEin Fehler ist aufgetreten: {message}"
 
 errors:
-  timeout: "&cTempo limite esgotado (3 segundos)."
-  sql: "&cErro de SQL: {message}"
-  sql-detail: "&cEstado SQL={state} Código de erro={code}"
-  sqlite-dir: "&cFalha ao criar a pasta do SQLite."
-  command-not-defined: "&cEste comando não está definido."
-  command-not-defined-send: "&cEste comando não está definido."
+  timeout: "&cZeitüberschreitung (3 Sekunden)."
+  sql: "&cSQL-Fehler: {message}"
+  sql-detail: "&cSQL-Status={state} Fehlercode={code}"
+  sqlite-dir: "&cErstellung des SQLite-Ordners ist fehlgeschlagen."
+  command-not-defined: "&cDieser Befehl ist nicht definiert."
+  command-not-defined-send: "&cDieser Befehl ist nicht definiert."
