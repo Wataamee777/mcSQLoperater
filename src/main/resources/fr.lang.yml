@@ -1,0 +1,40 @@
+startup:
+  enabled: "&aSimpleSQL telah activé. Version: {version}"
+  disabled: "&eSimpleSQL a été désactivé."
+
+vault:
+  not-found: "&eVault introuvable. L'intégration avec le plugin d'économie a été désactivée."
+  no-provider: "&6Vault a été trouvé, mais aucun plugin d'économie n'est présent."
+  hooked: "&aConnecté au plugin d'économie via Vault: {provider}"
+
+help:
+  title: "&eAide SimpleSQL"
+  version: "&7Version: &f{version}"
+  usage: "&7Utilisation: &f/sql QUERY"
+  example: "&7Exemple: &f/sql SHOW TABLES;"
+
+command:
+  no-permission: "&cVous n'êtes pas OP, vous ne pouvez donc pas utiliser cette commande."
+  empty-query: "&cLe contenu de la requête semble être vide."
+  running: "&eExécution de la requête asynchrone en cours..."
+
+result:
+  success-rows: "&aSQL exécuté avec succès. Lignes: {count}"
+  success-affected: "&aSQL exécuté avec succès. Lignes affectées: {count}"
+  empty: "&7(Vide)"
+  row-format: "&f{row}"
+
+sql-send:
+  usage: "&7Utilisation: /sql-send QUERY"
+  running: "&eExécution de la requête asynchrone et envoi du contenu..."
+  success: "&aL'envoi POST vers l'URL configurée a été exécuté avec succès."
+  url-empty: "&csql-send.url n'est pas configuré correctement. Veuillez vérifier le fichier config.yml."
+  post-failed: "&cUne erreur est survenue: {message}"
+
+errors:
+  timeout: "&cLe délai d'attente a expiré (3 secondes)."
+  sql: "&cErreur SQL: {message}"
+  sql-detail: "&cÉtat SQL={state} Code d'erreur={code}"
+  sqlite-dir: "&cÉchec de la création du dossier SQLite."
+  command-not-defined: "&cCette commande n'est pas définie."
+  command-not-defined-send: "&cCette commande n'est pas définie."
